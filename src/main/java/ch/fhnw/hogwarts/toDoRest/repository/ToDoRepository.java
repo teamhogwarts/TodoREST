@@ -32,4 +32,9 @@ public class ToDoRepository {
                 .filter(toDo -> !toDo.getId().equals(toDoId))
                 .collect(Collectors.toList());
     }
+
+    public boolean find(String id){
+        return this.toDoList.stream()
+                .anyMatch(toDo -> toDo.getId().equals(id));
+    }
 }
