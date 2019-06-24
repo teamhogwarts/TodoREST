@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/toDo")
+@CrossOrigin("*")
 public class ToDoController {
 
     @Autowired
