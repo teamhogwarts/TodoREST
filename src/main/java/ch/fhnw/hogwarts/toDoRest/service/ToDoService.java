@@ -22,4 +22,12 @@ public class ToDoService {
         ToDo toDo = new ToDo(toDoRequest.getCreator(), toDoRequest.getText());
         this.toDoRepository.addToDo(toDo);
     }
+
+    public ToDo getToDo(String id){
+       return this.toDoRepository.getToDoList()
+               .stream()
+               .filter(findToDo -> findToDo.getId().equals(id))
+               .findAny()
+               .orElse(null);
+    }
 }
