@@ -50,5 +50,16 @@ public class ToDoController {
         return new ResponseEntity<>(toDo, HttpStatus.FOUND);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity deleteToDo(@PathVariable String id){
+        if (toDoService.find(id)){
+            this.toDoService.deleteToDo(id);
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
+
+
+
 
 }

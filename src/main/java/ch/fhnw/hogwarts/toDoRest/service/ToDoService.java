@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ToDoService {
@@ -29,5 +30,13 @@ public class ToDoService {
                .filter(findToDo -> findToDo.getId().equals(id))
                .findAny()
                .orElse(null);
+    }
+
+    public boolean find(String id) {
+        return this.toDoRepository.find(id);
+    }
+
+    public void deleteToDo(String id) {
+        this.toDoRepository.delete(id);
     }
 }
