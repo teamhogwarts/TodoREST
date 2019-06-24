@@ -1,28 +1,18 @@
-package ch.fhnw.hogwarts.toDoRest.model;
+package ch.fhnw.hogwarts.toDoRest.request;
 
-import java.util.UUID;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-public class ToDo {
+public class ToDoRequest {
 
-    private String id;
+    @Size(min=3, max=10)
     private String creator;
+
+    @NotNull
     private String text;
+
+    @NotNull
     private boolean isDone;
-
-    public ToDo(String creator, String text) {
-        this.id = UUID.randomUUID().toString();
-        this.creator = creator;
-        this.text = text;
-        this.isDone = false;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getCreator() {
         return creator;

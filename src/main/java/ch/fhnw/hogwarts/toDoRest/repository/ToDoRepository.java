@@ -14,9 +14,9 @@ public class ToDoRepository {
 
     public ToDoRepository(){
         this.toDoList = new ArrayList<>();
-        this.toDoList.add(new ToDo(1, "Pascal",  "first ToDo", false));
-        this.toDoList.add(new ToDo(2, "Benjamin",  "second ToDo", false));
-        this.toDoList.add(new ToDo(3, "Nadia",  "third ToDo", false));
+        this.toDoList.add(new ToDo( "Pascal",  "first ToDo"));
+        this.toDoList.add(new ToDo( "Benjamin",  "second ToDo"));
+        this.toDoList.add(new ToDo( "Nadia",  "third ToDo"));
     }
 
     public List<ToDo> getToDoList() {
@@ -27,9 +27,9 @@ public class ToDoRepository {
         this.toDoList.add(toDo);
     }
 
-    public void delete(int toDoId){
+    public void delete(String toDoId){
         this.toDoList = this.toDoList.stream()
-                .filter(toDo -> toDo.getId() != toDoId)
+                .filter(toDo -> !toDo.getId().equals(toDoId))
                 .collect(Collectors.toList());
     }
 }
