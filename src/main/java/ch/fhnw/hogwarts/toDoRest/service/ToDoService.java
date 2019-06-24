@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class ToDoService {
@@ -24,7 +23,7 @@ public class ToDoService {
         this.toDoRepository.addToDo(toDo);
     }
 
-    public ToDo getToDo(String id){
+    public ToDo getToDoById(String id){
        return this.toDoRepository.getToDoList()
                .stream()
                .filter(findToDo -> findToDo.getId().equals(id))

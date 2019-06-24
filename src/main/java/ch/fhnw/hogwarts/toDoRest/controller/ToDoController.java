@@ -42,8 +42,8 @@ public class ToDoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ToDo> getToDo(@PathVariable String id){
-        ToDo toDo = this.toDoService.getToDo(id);
+    public ResponseEntity<ToDo> getToDoById(@PathVariable String id){
+        ToDo toDo = this.toDoService.getToDoById(id);
         if (toDo == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -58,8 +58,4 @@ public class ToDoController {
         }
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
-
-
-
-
 }
