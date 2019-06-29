@@ -22,7 +22,6 @@ public class ToDoController {
 
     @GetMapping("/toDos")
     public ResponseEntity<List<ToDo>> getAllTodos(){
-
         List<ToDo> toDoList = this.toDoService.getAll();
 
         if(toDoList == null || toDoList.size() == 0){
@@ -48,15 +47,17 @@ public class ToDoController {
         if (toDo == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
         return new ResponseEntity<>(toDo, HttpStatus.FOUND);
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteToDo(@PathVariable String id){
-        if (toDoService.find(id)){
-            this.toDoService.deleteToDo(id);
-            return new ResponseEntity(HttpStatus.OK);
+        if (!toDoService.find(id)){
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity(HttpStatus.NOT_FOUND);
+
+        this.toDoService.deleteToDo(id);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }

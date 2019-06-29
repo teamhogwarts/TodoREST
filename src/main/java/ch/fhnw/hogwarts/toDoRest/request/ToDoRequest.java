@@ -3,7 +3,7 @@ package ch.fhnw.hogwarts.toDoRest.request;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class ToDoRequest {
+public class ToDoRequest { // DTO
 
     @Size(min=3, max=10)
     private String creator;
