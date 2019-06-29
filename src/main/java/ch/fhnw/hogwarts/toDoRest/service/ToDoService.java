@@ -18,7 +18,7 @@ public class ToDoService {
         return this.toDoRepository.getToDoList();
     }
 
-    public void saveToDo(ToDoRequest toDoRequest) {
+    public void createToDo(ToDoRequest toDoRequest) {
         ToDo toDo = new ToDo(toDoRequest.getCreator(), toDoRequest.getText());
         this.toDoRepository.addToDo(toDo);
     }

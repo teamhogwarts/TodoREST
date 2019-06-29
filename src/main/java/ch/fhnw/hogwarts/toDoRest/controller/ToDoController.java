@@ -37,7 +37,7 @@ public class ToDoController {
             return new ResponseEntity(HttpStatus.PRECONDITION_FAILED);
         }
 
-        this.toDoService.saveToDo(toDoRequest);
+        this.toDoService.createToDo(toDoRequest);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
